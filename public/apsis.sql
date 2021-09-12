@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 12, 2021 at 05:01 PM
+-- Generation Time: Sep 12, 2021 at 07:05 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.3.28
 
@@ -41,9 +41,8 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `category_title`, `category_slug`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Algorithm', 'algorithm', 1, '2021-09-12 11:16:11', '2021-09-12 11:16:14'),
-(2, 'Data Structure', 'data-structure', 1, '2021-09-12 11:16:11', '2021-09-12 11:16:14'),
-(3, 'My Test', 'my-test', 1, '2021-09-16 14:37:30', '2021-09-30 14:37:30');
+(1, 'Algorithm', 'algorithm', 1, '2021-09-15 15:02:45', '2021-09-14 15:02:45'),
+(2, 'Data Structure', 'data-structure', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -63,8 +62,8 @@ CREATE TABLE `migrations` (
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '2021_09_11_121034_create_users_table', 1),
-(4, '2021_09_12_111051_create_categories_table', 3),
-(5, '2021_09_11_145013_create_tasks_table', 4);
+(2, '2021_09_11_145013_create_tasks_table', 1),
+(3, '2021_09_12_111051_create_categories_table', 1);
 
 -- --------------------------------------------------------
 
@@ -90,17 +89,10 @@ CREATE TABLE `tasks` (
 --
 
 INSERT INTO `tasks` (`id`, `user_id`, `task_title`, `category`, `task_details`, `task_deadline`, `color`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Algorithm task', 1, 'Algorithm taskAlgorithm taskAlgorithm taskAlgorithm task', '2021-09-14 06:33:00', 'yellow', 1, '2021-09-12 08:29:12', '2021-09-12 08:29:12'),
-(2, 1, 'Another task of data struncture', 2, 'Another task of data struncture', '2021-09-12 14:30:51', 'cyan', 1, '2021-09-12 08:29:56', '2021-09-12 08:29:56'),
-(3, 1, 'asdfasdf', 2, 'asdf asdf asdf asdf asfd', '2021-09-07 02:34:00', 'yellow', 1, '2021-09-12 08:31:08', '2021-09-12 08:31:08'),
-(4, 1, 'Testing ...', 3, 'Hello', '2021-09-29 05:41:00', 'red', 1, '2021-09-12 08:38:45', '2021-09-12 08:38:45'),
-(5, 1, 'Hello hello', 1, 'asdf adsf asdf asdf asdfas', '2021-09-08 14:45:00', 'green', 1, '2021-09-12 08:42:00', '2021-09-12 08:42:00'),
-(6, 1, 'Another one', 2, 'asdf asdf adsfadsfasdfasdfasdfasdfadsf', '2021-09-15 14:47:00', 'purple', 1, '2021-09-12 08:43:10', '2021-09-12 08:43:10'),
-(7, 1, 'asdf asdfasdf asdf adsf', 1, 'asdf asdf asdf adsf asdf asdf', '2021-09-15 14:47:00', 'yellow', 1, '2021-09-12 08:44:07', '2021-09-12 08:44:07'),
-(8, 1, 'asdfasdf', 1, 'asdfasdfasdf', '2021-09-03 14:47:00', 'yellow', 1, '2021-09-12 08:44:37', '2021-09-12 08:44:37'),
-(9, 1, 'asdf asdf ads', 2, 'sdf adsf adsf asdf asd fasdf adsf sadf', '2021-09-14 14:49:00', 'yellow', 1, '2021-09-12 08:46:55', '2021-09-12 08:46:55'),
-(10, 2, 'Hello', 2, 'sfasdf asdfasdfasdf \r\nasdf \r\nasdf\r\n asdf', '2021-09-15 14:00:00', 'yellow', 1, '2021-09-12 08:57:54', '2021-09-12 08:57:54'),
-(11, 2, 'Another task', 1, 'df asdfasdf asdfasdfasdfadsf asdfasdf', '2021-09-14 07:04:00', 'yellow', 1, '2021-09-12 09:00:54', '2021-09-12 09:00:54');
+(1, 5, 'asdf asdf ads', 2, 'asdf sadfasdf asdfasdfasdfasdf', '2021-09-15 15:13:00', 'yellow', 1, '2021-09-12 09:10:51', '2021-09-12 09:10:51'),
+(2, 5, 'asdf asdf ads', 1, 'asdfasdfasdfasdfasdfasdfadsfasdf', '2021-09-08 06:14:00', 'yellow', 1, '2021-09-12 09:11:07', '2021-09-12 09:11:07'),
+(3, 5, 'asdf asdf ads', 1, 'asdf adsf asdf asdf adsf asdfasdfasdf adsf asdf asdf adsf asdfasdfasdf adsf asdf asdf adsf asdfasdfasdf adsf asdf asdf adsf asdfasdfasdf adsf asdf asdf adsf asdfasdfasdf adsf asdf asdf adsf asdfasdfasdf adsf asdf asdf adsf asdfasdfasdf adsf asdf asdf adsf asdfasdfasdf adsf asdf asdf adsf asdfasdfasd', '2021-09-12 16:36:47', 'purple', 1, '2021-09-12 09:11:55', '2021-09-12 09:11:55'),
+(4, 2, 'asdf asdf ads', 2, 'sadf adsf asfasdfasdf asdfasdf', '2021-09-12 16:34:36', 'yellow', 2, '2021-09-12 09:12:39', '2021-09-12 09:12:39');
 
 -- --------------------------------------------------------
 
@@ -125,8 +117,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Sarower Jahan', 'support@eternalgarment.com', NULL, '$2y$10$r7LgUFTVGqaBbRVMl8FlPOVB5paNdUc8NvgCFm6DL/u2VeP/5hsga', 2, 'lXVEeKmpZZ7yadaIaWjAZv70n4zi1IKoDHXIrsuJINotI72LWsi3pd19MNIR', '2021-09-11 07:44:15', '2021-09-11 07:44:15'),
-(2, 'Golam Sharower-E-Jahan', 'sarowerj@gmail.com', NULL, '$2y$10$rE2.x5Wsq.rNTtdVGs5KCeiiSsgOFlqx90F9Hhpnoh6MGr41sF//C', 2, 'J96k77IkOKi8OyRa8V35KNdDAyyQpfhHP5M326fMmypEXQqGvzNwx97ckAjQ', '2021-09-12 08:48:06', '2021-09-12 08:48:06');
+(1, 'Sarower', 'sarowerj93@gmail.com', NULL, '$2y$10$3MjzxwmxdJKSnom3bKVMwO97FoBhRFySDVDelVzAv8zoHlM62IlUW', 2, 'qG72YqHa4lU1cs2oHpHMkmW2P8PEGE2JeoT42mvRYBOxwPDAGlC5jWxBRDN6', '2021-09-12 09:03:40', '2021-09-12 09:03:40'),
+(2, 'Golam Sarower', 'sarowerj@gmail.com', NULL, '$2y$10$VCucp0OwUjfpQ8rCpeDavOXysGKt5ruWFDi.H8fNBObMWjQGITcOW', 2, 'E42HKI38Y2ZUV71whaVKDb9oAGjXvYtbBD9x1Fi75Uko2uKmNcwVYcK3tBUM', '2021-09-12 09:05:12', '2021-09-12 09:05:12'),
+(3, 'Sarower Jahan', 'sarowerjasdf@gmail.com', NULL, '$2y$10$zfxlkDOdzHiSaq0OB55foOSGWHePqMcsH42YuaPM5ghr5/bzWFjQC', 2, 'HLZ5iMQlHlGrvhjLv72kKGp7OhlHE6E0roWryLg25GwqsSy5NIAa33zfwCQp', '2021-09-12 09:05:48', '2021-09-12 09:05:48'),
+(4, 'Sarower Jahan', 'manager@mail.com3', NULL, '$2y$10$m17IsU0UC5dgR.i6K.HsGuK4PkA98csDDQlW5fJY6Yb0IFXnma6a.', 2, NULL, '2021-09-12 09:09:57', '2021-09-12 09:09:57'),
+(5, 'Hello', 'hello@mail.com', NULL, '$2y$10$Yo8yMM8EeIpFo85KWBizOuJga7SWEZu//heS2B1M8k/QfAA..rogK', 2, 'RNMQEuA5c4hG9rLVtlBu4mvnhPsX8rfhJxsjO5Bz4Zlm8ariwmOMj1YegTXK', '2021-09-12 09:10:10', '2021-09-12 09:10:10');
 
 --
 -- Indexes for dumped tables
@@ -165,25 +160,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
