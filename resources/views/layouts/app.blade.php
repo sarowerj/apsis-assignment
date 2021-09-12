@@ -41,8 +41,7 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li><a href="javascript:void(0)" data-toggle="modal" data-target="#createNewTask"><i class="fas fa-plus"></i></a></li>
-                        <li><a href="{{ route('login') }}"><i class="fas fa-palette"></i></a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#createNewTask"><i class="fas fa-plus"></i></a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
