@@ -6,15 +6,12 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use EllipseSynergie\ApiResponse\Contracts\Response;
-use App\Task;
-use App\Transformer\TaskTransformer;
+use App\Category;
+use App\Transformer\CategoryTransformer;
 use App\User;
-use Exception;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
-
-class TaskController extends Controller
+class CategoryController extends Controller
 {
     protected $response;
 
@@ -29,10 +26,9 @@ class TaskController extends Controller
      */
     public function index()
     {
-
-        $tasks = DB::table('tasks')->where('tasks.user_id', '=', Auth::user()->id)->join('categories', 'tasks.category', '=', 'categories.id')->select('tasks.*', 'categories.category_slug')->get();
-        if (!empty($tasks)) {
-            return $this->response->withCollection($tasks, new TaskTransformer());
+        $category = Category::all()->where('status', '=', 1);
+        if (!empty($category)) {
+            return $this->response->withCollection($category, new CategoryTransformer());
         }
         return $this->response->errorNotFound('Task Not Found');
     }
@@ -55,26 +51,7 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-
-        $request->validate([
-            'task_title' => 'required',
-            'category' => 'required',
-            'task_details' => 'required',
-            'color' => 'required',
-            'task_date' => 'required',
-            'task_time' => 'required'
-        ]);
-
-        $data = $request->all();
-        $data['user_id'] = Auth::user()->id;
-        $data['status'] = 1;
-        $data['task_deadline'] = $data['task_date'] . ' ' . $data['task_time'];
-        try {
-            $item = Task::create($data);
-            return $this->response->withItem($item, new TaskTransformer());
-        } catch (Exception $Exception) {
-            return $this->response->errorNotFound('Task creation unsucessfull.');
-        }
+        //
     }
 
     /**
@@ -85,12 +62,7 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-        $task = Task::find($id);
-        if (!$task) {
-            return $this->response->errorNotFound('Task Not Found');
-        }
-        // Return a single task
-        return $this->response->withItem($task, new  TaskTransformer());
+        //
     }
 
     /**

@@ -15,6 +15,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('resources/fontawesome-free-5.15.4-web/css/all.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
 </head>
 
 <body>
@@ -40,8 +41,7 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li><a href="javascript:void(0)" data-toggle="modal" data-target="#createNewTask"><i class="fas fa-plus"></i></a></li>
-                        <li><a href="{{ route('login') }}"><i class="fas fa-palette"></i></a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#createNewTask"><i class="fas fa-plus"></i></a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -76,63 +76,15 @@
         </nav>
         @yield('content')
     </div>
-
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="createNewTask" tabindex="-1" role="dialog" aria-labelledby="createNewTaskLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <div class="row">
-                        <div class="col-xs-4">
-                            <h4 class="modal-title" id="createNewTaskLabel">Create New Task</h4>
-                        </div>
-                        <div class="col-xs-7">
-                            <div class="color-pallet">
-                                <a href="javascript:void(0)" class="yellow">
-                                    <i class="fas fa-sticky-note"></i>
-                                </a>
-                                <a href="javascript:void(0)" class="green">
-                                    <i class="fas fa-sticky-note"></i>
-                                </a>
-                                <a href="javascript:void(0)" class="cyan">
-                                    <i class="fas fa-sticky-note"></i>
-                                </a>
-                                <a href="javascript:void(0)" class="purple">
-                                    <i class="fas fa-sticky-note"></i>
-                                </a>
-                                <a href="javascript:void(0)" class="magenda">
-                                    <i class="fas fa-sticky-note"></i>
-                                </a>
-                                <a href="javascript:void(0)" class="red">
-                                    <i class="fas fa-sticky-note"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <input type="text" name="taskType" id="taskType" maxlength="22" placeholder="Task Type" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <textarea name="taskDetails" id="taskDetails" rows="10" placeholder="Task Details" class="form-control"></textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save</button>
-                </div>
-            </div>
-        </div>
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+
+    <script src="{{ asset('js/jquery-1.12.4.min.js') }}" crossorigin="anonymous"></script>
+    <script src="{{ asset('resources/bootstrap-3.4.1-dist/js/bootstrap.min.js') }}" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/app.js') }}" crossorigin="anonymous"></script>
+
+    @yield('footer')
 </body>
 
 </html>
