@@ -17,7 +17,12 @@ body {
   /* top: 50px; */
   text-align: right;
 }
-
+.bg-white {
+  background: white;
+}
+.loader {
+  padding: 30px;
+}
 .color-pallet a {
   color: #ffff66;
   display: inline-block;
@@ -43,4 +48,26 @@ body {
 }
 .color-pallet a.red {
   color: #ff2e2e;
+}
+.panel-default.yellow > .panel-heading {
+  background: #ffff66;
+}
+.panel-default.green > .panel-heading {
+  background: #92ff8a;
+}
+.panel-default.cyan > .panel-heading {
+  background: #76d9ff;
+}
+.panel-default.purple > .panel-heading {
+  background: #c484ed;
+}
+.panel-default.magenda > .panel-heading {
+  background: #fb5eee;
+}
+.panel-default.red > .panel-heading {
+  background: #ff2e2e;
+}
+
+.card {
+  background: white;
 }

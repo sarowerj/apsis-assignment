@@ -16,3 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::middleware('auth.basic')->post('task', 'TaskController@index');
+// get specific task
+Route::middleware('auth.basic')->get('task/{id}', 'TaskController@show');
+Route::middleware('auth.basic')->post('task/create', 'TaskController@create');
+Route::middleware('auth.basic')->post('category', 'CategoryController@index');

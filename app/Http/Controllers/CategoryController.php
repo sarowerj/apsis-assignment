@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use EllipseSynergie\ApiResponse\Contracts\Response;
-use App\Task;
-use App\Transformer\TaskTransformer;
+use App\Category;
+use App\Transformer\CategoryTransformer;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 
-class TaskController extends Controller
+class CategoryController extends Controller
 {
     protected $response;
 
@@ -26,9 +26,9 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::all()->where('user_id', '=', Auth::user()->id);
-        if (!empty($tasks)) {
-            return $this->response->withCollection($tasks, new TaskTransformer());
+        $category = Category::all()->where('status', '=', 1);
+        if (!empty($category)) {
+            return $this->response->withCollection($category, new CategoryTransformer());
         }
         return $this->response->errorNotFound('Task Not Found');
     }
@@ -40,7 +40,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        print_r($_POST);
+        //
     }
 
     /**
@@ -62,12 +62,7 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-        $task = Task::find($id);
-        if (!$task) {
-            return $this->response->errorNotFound('Task Not Found');
-        }
-        // Return a single task
-        return $this->response->withItem($task, new  TaskTransformer());
+        //
     }
 
     /**
